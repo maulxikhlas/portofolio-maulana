@@ -24,3 +24,189 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  /* Reset background and text colors for all elements to light mode */
+  html, body, main {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #1e293b !important;
+  }
+  
+  * {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: #1e293b !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Make headings and important text stand out in dark gray/black */
+  h1, h2, h3, .text-white, font-bold {
+    color: #0f172a !important;
+  }
+
+  /* Subheadings and labels */
+  .text-cyan-400, .text-cyan-500, p.text-cyan-400, span.text-cyan-400 {
+    color: #0369a1 !important; /* Nice dark cyan/blue for high readability */
+  }
+
+  /* Muted text */
+  .text-slate-400, .text-slate-500, .text-slate-600 {
+    color: #475569 !important;
+  }
+
+  /* Borders */
+  .border-slate-800, .border-slate-700, .border-b {
+    border-color: #e2e8f0 !important;
+  }
+  
+  .border-cyan-500 {
+    border-color: #0369a1 !important;
+  }
+
+  /* Skill Badges styling for print */
+  span.px-3 {
+    border: 1px solid #cbd5e1 !important;
+    background-color: #f8fafc !important;
+    color: #334155 !important;
+    border-radius: 4px !important;
+  }
+
+  /* Page setup and layout adjustments */
+  @page {
+    size: A4;
+    margin: 15mm 20mm;
+  }
+
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+
+  /* Reduce gap and padding for printing */
+  .p-8, .md\:p-20 {
+    padding: 0 !important;
+  }
+  
+  .space-y-12 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.5rem !important;
+  }
+  
+  .grid {
+    gap: 1.5rem !important;
+  }
+  
+  .pt-12 {
+    padding-top: 1.5rem !important;
+  }
+}
+
+/* Overrides for html2pdf direct download to fit 1 A4 page cleanly */
+body.generating-pdf,
+body.generating-pdf main {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #1e293b !important;
+}
+
+.generating-pdf * {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #1e293b !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Set fixed A4 width to make html2canvas render consistently */
+.generating-pdf #portfolio-content {
+  width: 794px !important; /* A4 width at 96 DPI */
+  max-width: 794px !important;
+  padding: 30px 40px !important;
+  box-sizing: border-box !important;
+  background-color: #ffffff !important;
+}
+
+.generating-pdf h1 {
+  color: #0f172a !important;
+  font-size: 2.2rem !important;
+}
+
+.generating-pdf h2 {
+  color: #0f172a !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.generating-pdf h3 {
+  color: #0f172a !important;
+  font-size: 0.95rem !important;
+}
+
+.generating-pdf p,
+.generating-pdf li,
+.generating-pdf span,
+.generating-pdf a {
+  color: #334155 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.4 !important;
+}
+
+.generating-pdf .text-cyan-400,
+.generating-pdf .text-cyan-500,
+.generating-pdf p.text-cyan-400,
+.generating-pdf span.text-cyan-400 {
+  color: #0369a1 !important;
+}
+
+.generating-pdf .text-slate-400,
+.generating-pdf .text-slate-500,
+.generating-pdf .text-slate-600 {
+  color: #475569 !important;
+}
+
+.generating-pdf .border-slate-800,
+.generating-pdf .border-slate-700,
+.generating-pdf .border-b {
+  border-color: #e2e8f0 !important;
+}
+
+.generating-pdf .border-cyan-500 {
+  border-color: #0369a1 !important;
+}
+
+.generating-pdf span.px-3 {
+  border: 1px solid #cbd5e1 !important;
+  background-color: #f8fafc !important;
+  color: #334155 !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  font-size: 0.75rem !important;
+}
+
+.generating-pdf .space-y-12 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem !important;
+}
+
+.generating-pdf .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.75rem !important;
+}
+
+.generating-pdf .grid {
+  gap: 1.5rem !important;
+}
+
+.generating-pdf .pt-12 {
+  padding-top: 1rem !important;
+}
+
+.generating-pdf .print\:hidden {
+  display: none !important;
+}
+
